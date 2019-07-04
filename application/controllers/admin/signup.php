@@ -182,13 +182,47 @@ class Signup extends My_Controller
 	}
 
 
-
+	/**
+	 * [forgot_password Send Mail on provided Email Id to change Password]
+	 * @return [type] [description]
+	 */
 	public function forgot_password()
 	{
 		if($this->input->post())
 		{
 			$email = _post('email');
-			
+			set_session('email',$email);
+
+			$from    = $this->config->item('smtp_user');
+			$to      = $email;
+			$subject = strstr(ucwords($email), '@', true).", Password Reset For Reddy Tour Account .";
+
+			$data          = array();
+			$data['email'] = $email;
+
+			$message = $this->load->view('admin/signup/email_format_fp', $data, true);
+
+			$this->email->set_newline("\r\n");
+			$this->email->from($from);
+			$this->email->to($to);
+			$this->email->subject($subject);
+
+			$this->email->message($message);
+			$this->email->set_mailtype("html");
+
+
+	        if ($this->email->send()) 
+	        {
+
+				set_session('email',$email);
+				$data['display'] = $this->load->view('admin/signup/fp_success', '', true);
+				$this->load->view('admin/common_signup', $data);
+
+	        } 
+	        else 
+	        {
+	            show_error($this->email->print_debugger());
+	        }
 
 
 		}
