@@ -4,20 +4,45 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-	<link rel="icon" type="image/png" href="<?php echo base_url('assets/'); ?>favicon-32x32" sizes="32x32" />
-
     <title>Reddy</title>
 
   </head>
+
   <body>
+
+  	<?php
+
+if ($message = $this->session->flashdata('message'))
+{
+
+?>
+<script>
+  $(function(){
+      setTimeout(function () {
+        new PNotify({
+            title: '<?php echo $message['title']; ?>',
+            text: '<?php echo $message['text']; ?>',
+            icon: '<?php echo $message['icon']; ?>',
+            type: '<?php echo $message['type']; ?>'
+        })
+      }, 600);
+  });
+</script>
+<?php
+
+	unset_session('email');
+
+}
+
+?>
 	
 		<div class="login-register-r">
+
 			<div class="login-register-title">
 				<h2>Welcome Back! </h2>
 				<h6>Please Login To Your Account</h6>
 			</div>	
+
 			<form id="form_validate" method="post" >
 
 				<div class="field">
@@ -33,6 +58,7 @@
 				<div class="remember-password d-flex">
 
 					<div class="remember-me">
+
 						<input type="checkbox" id="test2" name="remember" 
 						<?php 
 						if (get_cookie('login')) 
@@ -52,8 +78,10 @@
 				</div>
 
 				<div class="login-register-btn d-flex">
-					<button type="submit" class="btn mr-auto" id="btn_submit" name="btn_submit">Login</button>
-					<button type="button" class="btn ml-auto" onclick="location.href='<?php echo site_url('admin/signup/register'); ?>'">Sign Up</button>
+					<button type="submit" class="btn mr-auto" id="btn_submit" name="btn_submit">
+					Login</button>
+					<button type="button" class="btn ml-auto" onclick="location.href=
+					'<?php echo site_url('admin/signup/register'); ?>'">Sign Up</button>
 				</div>
 			</form>
 		</div>
@@ -141,7 +169,7 @@
 							}
 							else
 							{
-								window.location = '<?php echo site_url('admin/signup/register') ?>'
+								window.location = '<?php echo site_url('admin/dashboard') ?>'
 							}
 
 						}

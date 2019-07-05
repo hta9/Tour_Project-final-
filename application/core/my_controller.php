@@ -10,19 +10,19 @@ class My_Controller extends CI_Controller
 		// if($this->session->userdata('email')==false)
 		// {
 		// 	redirect('admin/login/login');
-		// }
-		
+		// }	
 
 	}
 
-
 	public function privacy_policy()
 	{
-		$this->load->view('admin/privacy/privacy_policy');
+		$data['display'] = $this->load->view('admin/privacy/privacy_policy','',true);
+		$this->load->view('admin/index',$data);
 	}
 
 	public function terms_conditions()
 	{
-		$this->load->view('admin/privacy/terms_condition');
+		$data['display'] = $this->load->view('admin/privacy/terms_condition','',true);
+		$this->load->view('admin/index',$data);
 	}
 }

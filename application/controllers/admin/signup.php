@@ -11,7 +11,7 @@ class Signup extends My_Controller
 
 	public function index()
 	{
-		$this->load->view('admin/common_signup');
+		$this->register();
 	}
 
 	/**
@@ -93,9 +93,9 @@ class Signup extends My_Controller
 				'password'  => $password
 			);
 
-			$sql = $this->admin->insert($admin_data);
+			$result = $this->admin->insert($admin_data);
 
-			if ($sql)
+			if ($result)
 			{
 				redirect('admin/signup/login');
 			}
@@ -115,36 +115,35 @@ class Signup extends My_Controller
 	{
 		if ($this->input->post())
 		{
-			$login_data = _post('login');
-			$password   = _post('password');
+			$login_data      = _post('login');
+			$password        = _post('password');
 			$cookie_password = _post('password');
-			$remember = _post('remember');
+			$remember        = _post('remember');
 
-			$sql = $this->admin->check_login($login_data, $cookie_password);
-
-			if($remember==1)
+			$result = $this->admin->check_login($login_data, $cookie_password);
+			
+			if ($remember == 1)
 			{
-				//echo 'set';	
+				//echo 'set';
 				$this->input->set_cookie('login', $login_data, 86500);
 				$this->input->set_cookie('password', $cookie_password, 86500);
 			}
 			else
 			{
 				//echo "unset";
-				delete_cookie('login'); 
-				delete_cookie('password'); 
-		
+				delete_cookie('login');
+				delete_cookie('password');
 			}
 
-			if($sql)
+			if ($result)
 			{
 				echo "true";
+				set_session('login_data', $login_data);
 			}
 			else
 			{
 				echo "false";
 			}
-			
 		}
 		else
 		{
@@ -181,17 +180,16 @@ class Signup extends My_Controller
 		}
 	}
 
-
 	/**
 	 * [forgot_password Send Mail on provided Email Id to change Password]
 	 * @return [type] [description]
 	 */
 	public function forgot_password()
 	{
-		if($this->input->post())
+		if ($this->input->post())
 		{
 			$email = _post('email');
-			set_session('email',$email);
+			set_session('email', $email);
 
 			$from    = $this->config->item('smtp_user');
 			$to      = $email;
@@ -210,26 +208,73 @@ class Signup extends My_Controller
 			$this->email->message($message);
 			$this->email->set_mailtype("html");
 
-
-	        if ($this->email->send()) 
-	        {
-
-				set_session('email',$email);
+			if ($this->email->send())
+			{
+				set_session('email', $email);
 				$data['display'] = $this->load->view('admin/signup/fp_success', '', true);
 				$this->load->view('admin/common_signup', $data);
-
-	        } 
-	        else 
-	        {
-	            show_error($this->email->print_debugger());
-	        }
-
-
+			}
+			else
+			{
+				show_error($this->email->print_debugger());
+			}
 		}
 		else
 		{
 			$data['display'] = $this->load->view('admin/signup/forgot_password', '', true);
 			$this->load->view('admin/common_signup', $data);
 		}
+	}
+
+	public function recover_password()
+	{	
+	
+		if ($this->input->post())
+		{
+			$password = _post('password');
+			$email    = fetch_session('email');
+
+			$result = $this->admin->change_password($password, $email);
+
+			if($result)
+			{
+				 $message = 
+							[
+								'message_type' => 'update',
+								'title' => 'Success:',
+								'text' => 'Password is Successfully Changed, Login with New Password.',
+								'icon' => 'icon-checkmark3', // success
+								'type' => 'success'
+							];
+							unset_session('email');
+							$this->session->set_flashdata('message',$message);
+							redirect('admin/signup/login'); 
+			}
+			else
+			{
+				$message = 
+							[
+								'message_type' => 'update',
+								'title' => 'Error:',
+								'text' => 'Sorry, Something Went Wrong..!!',
+								'icon' => 'icon-checkmark3', // success
+								'type' => 'danger'
+							];
+							$this->session->set_flashdata('message',$message);
+							redirect('admin/signup/login');
+			}
+		}
+		else
+		{
+			$email    = fetch_session('email');
+			$data['display'] = $this->load->view('admin/signup/recover_password', '', true);
+			$this->load->view('admin/common_signup', $data);
+		}
+	}
+
+	public function logout()
+	{
+		destroy_session('login_data');
+		redirect('admin/signup/login');
 	}
 }

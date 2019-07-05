@@ -1,48 +1,21 @@
 <!doctype html>
 <html lang="en">
+
 	<head>
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Bootstrap CSS -->
-		<link rel="icon" type="image/png" href="<?php echo base_url('assets/'); ?>favicon-32x32" sizes="32x32" />
-		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
-
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-		<link rel="stylesheet" href="<?php echo base_url('assets/'); ?>css/bootstrap.min.css">
-		<link href="<?php echo base_url('assets/'); ?>css/jquery.mCustomScrollbar.css" rel="stylesheet" />
-		<link href="<?php echo base_url('assets/'); ?>css/style.css" rel="stylesheet" />
-
 		<title>Reddy</title>
 	</head>
-	<body>
-		<div class="dashboard-wrap d-flex">
-			<div class="dashboard-l">
-				<div class="logo"><a href=""><img src="<?php echo base_url('assets/'); ?>images/logo.svg" alt="" /></a></div>
-				<div class="create-tour"><a href="">Create New Tour</a></div>
-				<div class="navigation">
-					<ul>
-						<li class="dashboard-nav"><a href="dashborad.html"><span></span> <strong>Dashboard</strong></a></li>
-						<li class="notification-nav"><a href="notification.html"><span></span> <strong>Notifications</strong></a></li>
-						<li class="tours-nav"><a href="mytours.html"><span></span> <strong>My Tours</strong></a></li>
-						<li class="finances-nav"><a href="finances.html"><span></span> <strong>Finances</strong></a></li>
-						<li class="marketing-nav"><a href="marketing.html"><span></span> <strong>Marketing</strong></a></li>
-						<li class="setting-nav"><a href="settings.html"><span></span> <strong>Settings</strong></a></li>
-						<li class="help-nav active"><a href="help.html"><span></span> <strong>Help</strong></a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="dashboard-r ftr-none">
-				<div class="right-header">
-					<a href="" class="btn">LOG OUT</a>
-				</div>
-				<div class="right-title terms-policy">
-					<h3> <a href="terms-conditions.html">Terms & Conditions</a> <span> / </span> Privacy Policy</h3>
-				</div>
-				<div class="right-content">
-					<div class="terms-policy-box white-box">
-						<h2>Privacy Notice</h2>
-						<div class="terms-policy-box-inr" id="content-11">
+
+
+<body>
+
+<div class="right-content">
+	<div class="terms-policy-box white-box">
+		<h2>Privacy Notice</h2>
+		<div class="terms-policy-box-inr" id="content-11">
+
 <p>This is the privacy notice of Ready Freddy Ltd. In this document, “we”, “our”, or “us” refer to  Ready Freddy Ltd.
 We are company number 1188201 registered in United Kingdom.</p>
 <p>Our registered office is at 79 Colwith Road, W6 9EZ.</p>
@@ -328,22 +301,9 @@ If you think it fails to satisfy the law of your jurisdiction, we should like to
 the day you use our website. We advise you to print a copy for your records.</p>
 <p>If you have any question regarding our privacy policy, please contact us.</p>
  
-						</div>
-					</div>
-				</div>
-				<div class="right-footer"></div>
-			</div>
 		</div>
-		<footer class="footer">
-			<a href="">Term of use. Privacy policy</a>
-		</footer>    
-
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-		<script src="<?php echo base_url('assets/'); ?>js/jquery.mCustomScrollbar.min.js"></script>
-		<script src="<?php echo base_url('assets/'); ?>js/custom.js"></script>
-	</body>
+	</div>
+</div>
+				
+</body>
 </html>

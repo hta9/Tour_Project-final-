@@ -1,14 +1,10 @@
 <!doctype html>
 <html lang="en">
+
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-	  <link rel="icon" type="image/png" href="<?php echo base_url('assets/'); ?>favicon-32x32" sizes="32x32" />
-      <!-- Bootstrap CSS -->
-      
     <title>Reddy</title>
 
   </head>
@@ -20,7 +16,9 @@
 				<h2>Welcome! </h2>
 				<h6>Please Sign Up Here</h6>
 			</div>	
+
 			<form method="post" action="<?php echo site_url('admin/signup/register'); ?>" id="form_validate">
+
 				<div class="d-flex first-last-name">
 
   					<div class="field mr-auto">
@@ -32,50 +30,53 @@
   						<input type="text" name="lastname" id="lastname" placeholder="Last Name">
   						<label for="lastname">Last Name</label>
   					</div>
+
 				</div>
 
 				<div class="field ml-auto">
 					<input type="text" name="username" id="username" placeholder="Username">
 					<label for="username">Username</label>
 				</div>
+
 				<div class="field ml-auto">
 					<input type="text" name="email" id="email" placeholder="Email">
 					<label for="email">Email</label>
-					
 				</div>
-				<span id="email_exist"></span>
+	
+
 				<div class="field">
 					<input type="password" name="password" class="txtbox_pwd" id="password" placeholder="Password">
-
 					<label for="password">Password</label>
-					
 				</div>
+
 				<div>
-				<span class="label password-indicator-label-absolute pwd_strength">
-					
-				</span>
-			</div>
+				  <span class="label password-indicator-label-absolute pwd_strength"></span>
+			  </div>
+
 				<div class="field">
 					<input type="password" name="confirm_password" id="confirm_password" 
 					placeholder="Confirm Password">
 					<label for="confirm_password">Confirm Password</label>
 				</div>
+
 				<div class="d-flex agree-with">
 					<div class="remember-me">
 						<input type="checkbox" id="terms" name="terms" value="terms">
 						<label for="terms">I Agree With <a href="<?php echo site_url('admin/signup/terms_conditions'); ?>">Terms And Conditions</a></label>
 					</div>
 				</div>
+
 				<div class="login-register-btn d-flex">
 					<button type="submit" class="btn m-auto" >Sign Up</button>
 				</div>
+
 				<div class="btm-option">
 					<a href="<?php echo site_url('admin/signup/login'); ?>">Already Have An Account? Sign In.</a>
 				</div>
+
 			</form>
 		</div>
   
-
   </body>
 </html>
 
@@ -166,7 +167,7 @@
         			confirm_password:
         			{
         				required:"This Field is Required.",
-        				equalTo :"Confirm Password Should Be Matched with Password."
+        				equalTo :"Confirm Password Should Be Same As Password."
         			},
         			terms:
         			{

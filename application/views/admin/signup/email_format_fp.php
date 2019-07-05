@@ -8,24 +8,30 @@
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style type="text/css">
-	.button {
-  background-color: #ccccb3;
-  border: 1px solid black;
-  color: black;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 8px;
-}
 
-.button:hover {
-  background-color: #f1f1f1;
-}
+	.button 
+		{
+		  background-color: #ccccb3;
+		  border: 1px solid black;
+		  color: black;
+		  padding: 10px 20px;
+		  text-align: center;
+		  text-decoration: none;
+		  display: inline-block;
+		  margin: 4px 2px;
+		  cursor: pointer;
+		  border-radius: 8px;
+		  align-content:center;
+		}
+
+	.button:hover 
+		{
+  		  background-color: #f1f1f1;
+		}
+
 </style>
 </head>
+
 <body>
 <table>
 	
@@ -50,7 +56,7 @@
 		<tr>
 				
 		<td>
-			<a class="button" href="<?php echo site_url('admin/signup/change_password'); ?>">Reset Your Password </a>
+			<a class="button" href="<?php echo site_url('admin/signup/recover_password'); ?>">Reset Your Password </a>
 		</td>
 		</tr>
 
